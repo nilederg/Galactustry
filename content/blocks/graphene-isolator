@@ -1,0 +1,26 @@
+type: GenericCrafter
+name: Graphene Isolator
+description: Pulls sheets of graphene off graphite. Not very efficient or fast.
+size: 2
+health: 160
+hasPower: true
+hasItems: true
+craftTime: 90
+updateEffect: pulverizeMedium
+consumes: {
+  power: 1.5
+  items: {
+    items: [
+     coal/1
+    ]
+  }
+}
+requirements: [
+  copper/80
+  lead/30
+  graphite/40
+  titanium/25
+]
+category: crafting
+research: graphite-press
+outputItem: graphene/2
