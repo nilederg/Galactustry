@@ -3,6 +3,7 @@ name: Brownian Generator
 description: Generates energy from the Brownian motion of sheets of graphite. Completely passive, output not affected by external conditions.
 research: solar-panel
 powerProduction: 0.15
+productionEfficiency: 1
 size: 1
 health: 30
 category: power
