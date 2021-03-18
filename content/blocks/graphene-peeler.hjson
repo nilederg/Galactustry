@@ -1,6 +1,6 @@
 type: GenericCrafter
-name: Graphene Isolator
-description: Pulls sheets of graphene off graphite. Not very efficient or fast.
+name: Graphene Peeler
+description: Peels sheets of graphene off of graphite. Not very efficient or fast.
 size: 2
 health: 160
 hasPower: true
