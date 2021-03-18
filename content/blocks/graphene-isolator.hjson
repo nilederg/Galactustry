@@ -5,7 +5,7 @@ size: 2
 health: 160
 hasPower: true
 hasItems: true
-craftTime: 90
+craftTime: 120
 updateEffect: pulverizeMedium
 consumes: {
   power: 1.5
@@ -23,4 +23,4 @@ requirements: [
 ]
 category: crafting
 research: graphite-press
-outputItem: graphene/2
+outputItem: graphene/3
