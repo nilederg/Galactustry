@@ -2,5 +2,5 @@ name: "Galactustry"
 displayName: "Galactustry"
 description: "Adds many new features, drastically altering the endgame."
 author: NileDerg
-minGameVersion: 126
+minGameVersion: 136
 version: Alpha
