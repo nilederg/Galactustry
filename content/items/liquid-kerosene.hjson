@@ -4,3 +4,6 @@ color: 9a9aa7
 research: liquid-oil
 explosiveness: 1.6
 flammability: 2
+heatCapacity: 0.8
+viscosity: 0.6
+effect: tarred
