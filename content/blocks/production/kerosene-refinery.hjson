@@ -15,10 +15,10 @@ consumes: {
   }
 }
 requirements: [
-  100/lead
-  150/graphite
-  100/plastanium
-  80/silicon
+  lead/100
+  graphite/150
+  plastanium/100
+  silicon/80
 ]
 category: crafting
 research: oil-extractor
