@@ -1,0 +1,22 @@
+type: GenericCrafter
+name: Kerosene Refinery
+description: Distills pure kerosene from oil
+size: 2
+health: 160
+hasPower: true
+hasLiquids: true
+craftTime: 120
+craftEffect: formSmoke
+consumes: {
+  power: 2.5
+  liquid: {
+    liquid: oil
+	amount: 0.3
+  }
+}
+requirements: [
+  
+]
+category: crafting
+research: oil-extractor
+outputLiquid: kerosene/0.1
