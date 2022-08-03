@@ -6,7 +6,7 @@ health: 160
 hasPower: true
 hasLiquids: true
 craftTime: 120
-updateEffect: formsmoke
+updateEffect: plasticburn
 consumes: {
   power: 2.5
   liquid: {
