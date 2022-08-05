@@ -1,8 +1,0 @@
-name: Kerosene
-description: An incredibly flammable and energy-dense hydrocarbon, distilled from oil and commonly used for fuel
-color: 9a9aa7
-research: oil
-explosiveness: 1.6
-flammability: 2
-viscosity: 0.6
-effect: tarred

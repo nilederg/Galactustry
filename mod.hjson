@@ -1,6 +1,23 @@
-name: "Galactustry"
+#the mod name as displayed in-game
 displayName: "Galactustry"
-description: "Adds many new features, drastically altering the endgame."
-author: NileDerg
-minGameVersion: 136
+
+#the internal name of your mod
+name: "galactustry"
+
+#your name
+author: "Nilederg"
+
+#the fully qualified main class of the mod
+main: "galactustry.galactustry"
+
+#the mod description as seen in the mod dialog
+description: "Revived after 17 months, now in Java! Nowhere near done."
+
+#the mod version
 version: Alpha
+
+#the minimum game build required to run this mod
+minGameVersion: 136.1
+
+#this is a java mod
+java: true
