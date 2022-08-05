@@ -33,7 +33,7 @@ public class galactustry extends Mod{
 
     @Override
 	
-	public void loadContent(){
+    public void loadContent(){
         GalacStatusEffects.load();
         GalacLiquids.load();
         GalacItems.load();
