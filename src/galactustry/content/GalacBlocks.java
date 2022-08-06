@@ -105,9 +105,9 @@ public class GalacBlocks{
 			requirements(Category.crafting, with(Items.graphite, 260, Items.surgeAlloy, 200, Items.phaseFabric, 260, Items.silicon, 450));
 
 			updateEffect = Fx.smeltsmoke;
-			outputItem = new ItemStack(GalacItems.nanoglass, 1);
+			outputItem = new ItemStack(GalacItems.nanoglass, 2);
 			craftTime = 240f;
-			itemCapacity = 80;
+			itemCapacity = 20;
 			size = 4;
 			hasItems = true;
 			hasPower = true;
@@ -115,7 +115,7 @@ public class GalacBlocks{
 
 			ambientSound = Sounds.techloop;
 
-			consumeItems(with(GalacItems.graphene, 40, Items.metaglass, 2, Items.phaseFabric, 1));
+			consumeItems(with(GalacItems.graphene, 10, Items.metaglass, 2, Items.phaseFabric, 2, Items.carbide, 2));
 			consumePower(15f);
 		}};
 
@@ -133,7 +133,7 @@ public class GalacBlocks{
 
 			ambientSound = Sounds.techloop;
 
-			consumeItems(with(Items.graphite, 2, Items.surgeAlloy, 2, Items.phaseFabric, 2));
+			consumeItems(with(Items.graphite, 2, Items.surgeAlloy, 3, Items.phaseFabric, 2, Items.tungsten, 1));
 			consumePower(10f);
 		}};
     }
