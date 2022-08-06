@@ -12,7 +12,7 @@ public class GalacStatusEffects{
 
     public static void load(){
 		fuelDoused = new StatusEffect("fuel-doused"){{
-            color = Color.valueOf("9a9aa7");
+            color = Color.valueOf("e3b154");
             speedMultiplier = 0.95f;
             effect = Fx.oily;
 

@@ -1,5 +1,6 @@
 package galactustry.content;
 
+import arc.graphics.Color;
 import mindustry.content.Fx;
 import mindustry.content.Items;
 import mindustry.content.Liquids;
@@ -8,8 +9,13 @@ import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import mindustry.type.LiquidStack;
 import mindustry.world.Block;
+import mindustry.world.blocks.liquid.Conduit;
 import mindustry.world.blocks.power.ConsumeGenerator;
+import mindustry.world.blocks.power.ImpactReactor;
 import mindustry.world.blocks.production.GenericCrafter;
+import mindustry.world.draw.DrawDefault;
+import mindustry.world.draw.DrawFlame;
+import mindustry.world.draw.DrawMulti;
 
 import static mindustry.type.ItemStack.with;
 
@@ -17,9 +23,11 @@ public class GalacBlocks{
     //environment
     public static Block 
 	// production
-	graphenePeeler, keroseneRefinery,
+	graphenePeeler, keroseneRefinery, carbonNanoassembler, electroidCharger,
 	// power
-	keroseneGenerator;
+	keroseneGenerator, fusionReactor,
+	// liquid
+	insulatedConduit;
 
     public static void load() {
 		graphenePeeler = new GenericCrafter("graphene-peeler"){{
@@ -65,11 +73,68 @@ public class GalacBlocks{
 			hasItems = false;
 			hasPower = true;
 			hasLiquids = true;
-			
+
+			drawer = new DrawMulti(new DrawDefault(), new DrawFlame(Color.valueOf("ffef99")));
 			ambientSound = Sounds.smelter;
 			
 			consumeLiquids(LiquidStack.with(GalacLiquids.kerosene, 4f / 60f, Liquids.cryofluid, 2f / 60f));
 			powerProduction = 12.5f;
+		}};
+
+		fusionReactor = new ImpactReactor("fusion-reactor"){{
+			requirements(Category.power, with(Items.copper, 1));
+			size = 8;
+			health = 1800;
+			powerProduction = 4150f;
+			itemDuration = 120f;
+			ambientSound = Sounds.pulse;
+			ambientSoundVolume = 0.1f;
+
+			consumePower(3500f);
+			consumeLiquids(LiquidStack.with(Liquids.hydrogen, 12f / 60f, Liquids.cryofluid, 9999999f / 60f));
+		}};
+
+		insulatedConduit = new Conduit("insulated-conduit"){{
+			requirements(Category.liquid, with(Items.oxide, 2, Items.metaglass, 1, Items.graphite, 1));
+			liquidCapacity = 16f;
+			liquidPressure = 1.025f;
+			health = 90;
+		}};
+
+		carbonNanoassembler = new GenericCrafter("carbon-nanoassembler"){{
+			requirements(Category.crafting, with(Items.graphite, 260, Items.surgeAlloy, 200, Items.phaseFabric, 260, Items.silicon, 450));
+
+			updateEffect = Fx.smeltsmoke;
+			outputItem = new ItemStack(GalacItems.nanoglass, 1);
+			craftTime = 240f;
+			itemCapacity = 80;
+			size = 4;
+			hasItems = true;
+			hasPower = true;
+			hasLiquids = false;
+
+			ambientSound = Sounds.techloop;
+
+			consumeItems(with(GalacItems.graphene, 40, Items.metaglass, 2, Items.phaseFabric, 1));
+			consumePower(15f);
+		}};
+
+		electroidCharger = new GenericCrafter("electroid-charger"){{
+			requirements(Category.crafting, with(Items.plastanium, 200, Items.surgeAlloy, 120, Items.lead, 260, Items.silicon, 300));
+
+			// TODO electric zappy effects
+			updateEffect = Fx.smeltsmoke;
+			outputItem = new ItemStack(GalacItems.electroid, 2);
+			craftTime = 60f;
+			size = 3;
+			hasItems = true;
+			hasPower = true;
+			hasLiquids = false;
+
+			ambientSound = Sounds.techloop;
+
+			consumeItems(with(Items.graphite, 2, Items.surgeAlloy, 2, Items.phaseFabric, 2));
+			consumePower(10f);
 		}};
     }
 }

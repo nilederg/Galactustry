@@ -4,7 +4,9 @@ import arc.graphics.Color;
 import mindustry.type.Liquid;
 
 public class GalacLiquids{
-    public static Liquid kerosene;
+    public static Liquid kerosene
+    // Coolants soon
+    ;
 
     public static void load(){
 		kerosene = new Liquid("kerosene", Color.valueOf("9a9aa7")){{
