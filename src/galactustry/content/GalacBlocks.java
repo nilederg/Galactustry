@@ -102,11 +102,11 @@ public class GalacBlocks{
 		}};
 
 		carbonNanoassembler = new GenericCrafter("carbon-nanoassembler"){{
-			requirements(Category.crafting, with(Items.graphite, 260, Items.surgeAlloy, 200, Items.phaseFabric, 260, Items.silicon, 450));
+			requirements(Category.crafting, with(Items.graphite, 250, Items.surgeAlloy, 140, Items.phaseFabric, 160, Items.silicon, 250));
 
 			updateEffect = Fx.smeltsmoke;
-			outputItem = new ItemStack(GalacItems.nanoglass, 2);
-			craftTime = 240f;
+			outputItem = new ItemStack(GalacItems.nanoglass, 1);
+			craftTime = 180f;
 			itemCapacity = 20;
 			size = 4;
 			hasItems = true;
@@ -115,12 +115,12 @@ public class GalacBlocks{
 
 			ambientSound = Sounds.techloop;
 
-			consumeItems(with(GalacItems.graphene, 10, Items.metaglass, 2, Items.phaseFabric, 2, Items.carbide, 2));
-			consumePower(15f);
+			consumeItems(with(GalacItems.graphene, 10, Items.metaglass, 1, Items.phaseFabric, 1, Items.carbide, 1));
+			consumePower(12f);
 		}};
 
 		electroidCharger = new GenericCrafter("electroid-charger"){{
-			requirements(Category.crafting, with(Items.plastanium, 200, Items.surgeAlloy, 120, Items.lead, 260, Items.silicon, 300));
+			requirements(Category.crafting, with(Items.plastanium, 120, Items.surgeAlloy, 120, Items.lead, 160, Items.silicon, 200));
 
 			// TODO electric zappy effects
 			updateEffect = Fx.smeltsmoke;
@@ -134,7 +134,7 @@ public class GalacBlocks{
 			ambientSound = Sounds.techloop;
 
 			consumeItems(with(Items.graphite, 2, Items.surgeAlloy, 3, Items.phaseFabric, 2, Items.tungsten, 1));
-			consumePower(10f);
+			consumePower(8f);
 		}};
     }
 }
