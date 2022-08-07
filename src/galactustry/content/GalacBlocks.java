@@ -13,9 +13,7 @@ import mindustry.world.blocks.liquid.Conduit;
 import mindustry.world.blocks.power.ConsumeGenerator;
 import mindustry.world.blocks.power.ImpactReactor;
 import mindustry.world.blocks.production.GenericCrafter;
-import mindustry.world.draw.DrawDefault;
-import mindustry.world.draw.DrawFlame;
-import mindustry.world.draw.DrawMulti;
+import mindustry.world.draw.*;
 
 import static mindustry.type.ItemStack.with;
 
@@ -87,11 +85,13 @@ public class GalacBlocks{
 			health = 1800;
 			powerProduction = 4150f;
 			itemDuration = 120f;
+			
 			ambientSound = Sounds.pulse;
 			ambientSoundVolume = 0.1f;
+			drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(Liquids.cryofluid), new DrawRegion("-mid"), new DrawDefault());
 
 			consumePower(3500f);
-			consumeLiquids(LiquidStack.with(Liquids.hydrogen, 12f / 60f, Liquids.cryofluid, 9999999f / 60f));
+			consumeLiquids(LiquidStack.with(Liquids.hydrogen, 12f / 60f, Liquids.cryofluid, 1f / 60f));
 		}};
 
 		insulatedConduit = new Conduit("insulated-conduit"){{
