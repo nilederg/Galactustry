@@ -22,6 +22,7 @@ public class GalacBlocks{
     public static Block 
 	// production
 	graphenePeeler, keroseneRefinery, carbonNanoassembler, electroidCharger,
+	typeEMixer, typeDCooler, typeCMixer, typeBMixer, typeACooler,
 	// power
 	keroseneGenerator, fusionReactor,
 	// liquid
@@ -58,7 +59,7 @@ public class GalacBlocks{
 			
 			ambientSound = Sounds.smelter;
 			
-			consumeLiquid(Liquids.oil, (float) 0.3);
+			consumeLiquid(Liquids.oil, 18f / 60f);
 			consumePower(2.50f);
 		}};
 		
@@ -80,18 +81,22 @@ public class GalacBlocks{
 		}};
 
 		fusionReactor = new ImpactReactor("fusion-reactor"){{
-			requirements(Category.power, with(Items.copper, 1));
+			requirements(Category.power, with(Items.copper, 1000, Items.metaglass, 750, Items.graphite, 500, Items.silicon, 800, Items.phaseFabric, 300, Items.plastanium, 400, Items.surgeAlloy, 500, GalacItems.electroid, 750, GalacItems.graphene, 250));
 			size = 8;
 			health = 1800;
 			powerProduction = 4150f;
 			itemDuration = 120f;
+			// TODO make helium work
+			// outputLiquid = new LiquidStack(GalacLiquids.helium, 12f / 60f);
+
+			explosionDamage = 100000;
 			
 			ambientSound = Sounds.pulse;
 			ambientSoundVolume = 0.1f;
-			drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(Liquids.cryofluid), new DrawRegion("-mid"), new DrawPlasma(), new DrawDefault());
+			drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(GalacLiquids.coolantC), new DrawRegion("-mid"), new DrawPlasma(), new DrawDefault());
 
 			consumePower(3500f);
-			consumeLiquids(LiquidStack.with(Liquids.hydrogen, 12f / 60f, Liquids.cryofluid, 1f / 60f));
+			consumeLiquids(LiquidStack.with(Liquids.hydrogen, 12f / 60f, GalacLiquids.coolantC, 15f / 60f));
 		}};
 
 		insulatedConduit = new Conduit("insulated-conduit"){{
@@ -143,5 +148,79 @@ public class GalacBlocks{
 			consumeItems(with(Items.graphite, 2, Items.surgeAlloy, 3, Items.phaseFabric, 2, Items.tungsten, 1));
 			consumePower(8f);
 		}};
+
+		typeEMixer = new GenericCrafter("type-e-mixer"){{
+			requirements(Category.crafting, with(Items.lead, 100, Items.graphite, 60, Items.silicon, 60));
+
+			outputLiquid = new LiquidStack(GalacLiquids.coolantE, 12f / 60f);
+			craftTime = 120f;
+			size = 2;
+			hasItems = true;
+			hasPower = true;
+			hasLiquids = true;
+
+			consumeItem(Items.graphite, 1);
+			consumeLiquids(LiquidStack.with(Liquids.cryofluid, 12f / 60f, Liquids.oil, 6f / 60f));
+			consumePower(1.00f);
+		}};
+
+		typeDCooler = new GenericCrafter("type-d-cooler"){{
+			requirements(Category.crafting, with(Items.thorium, 50, Items.metaglass, 70, Items.plastanium, 100, Items.silicon, 80));
+
+			outputLiquid = new LiquidStack(GalacLiquids.coolantD, 12f / 60f);
+			craftTime = 120f;
+			size = 3;
+			hasItems = false;
+			hasPower = true;
+			hasLiquids = true;
+
+			consumeLiquid(GalacLiquids.coolantE, 12f / 60f);
+			consumePower(5.00f);
+		}};
+
+		typeCMixer = new GenericCrafter("type-c-mixer"){{
+			requirements(Category.crafting, with(Items.titanium, 150, Items.plastanium, 120, Items.silicon, 80));
+
+			outputLiquid = new LiquidStack(GalacLiquids.coolantC, 12f / 60f);
+			craftTime = 120f;
+			size = 2;
+			hasItems = false;
+			hasPower = true;
+			hasLiquids = true;
+
+			consumeLiquids(LiquidStack.with(Liquids.nitrogen, 9f / 60f, Liquids.hydrogen, 9f / 60f));
+			consumePower(1.50f);
+		}};
+
+		typeBMixer = new GenericCrafter("type-b-mixer"){{
+			requirements(Category.crafting, with(Items.surgeAlloy, 80, Items.plastanium, 140, Items.silicon, 100, GalacItems.graphene, 50));
+
+			outputLiquid = new LiquidStack(GalacLiquids.coolantB, 12f / 60f);
+			craftTime = 60f;
+			size = 3;
+			hasItems = true;
+			hasPower = true;
+			hasLiquids = true;
+
+			consumeLiquids(LiquidStack.with(GalacLiquids.coolantD, 12f / 60f, GalacLiquids.coolantC, 12f / 60f, GalacLiquids.helium, 12f / 60f));
+			consumeItem(Items.surgeAlloy, 1);
+			consumePower(3.00f);
+		}};
+
+		typeACooler = new GenericCrafter("type-a-cooler"){{
+			requirements(Category.crafting, with(Items.surgeAlloy, 120, Items.plastanium, 140, Items.silicon, 80, GalacItems.electroid, 100, Items.phaseFabric, 100));
+
+			outputLiquid = new LiquidStack(GalacLiquids.coolantA, 12f / 60f);
+			craftTime = 60f;
+			size = 4;
+			hasItems = false;
+			hasPower = true;
+			hasLiquids = true;
+
+			consumeLiquid(GalacLiquids.coolantB, 12f / 60f);
+			consumeItem(Items.phaseFabric, 1);
+			consumePower(100.0f);
+		}};
+
     }
 }
