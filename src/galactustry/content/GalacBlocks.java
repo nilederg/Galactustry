@@ -64,7 +64,7 @@ public class GalacBlocks{
 		}};
 		
 		keroseneGenerator = new ConsumeGenerator("kerosene-generator"){{
-			requirements(Category.crafting, with(Items.graphite, 80, Items.thorium, 40, Items.silicon, 60));
+			requirements(Category.power, with(Items.graphite, 80, Items.thorium, 40, Items.silicon, 60));
 
 			generateEffect = Fx.smeltsmoke;
 			itemDuration = 120f;
