@@ -77,7 +77,7 @@ public class GalacBlocks{
 			ambientSound = Sounds.smelter;
 			
 			consumeLiquids(LiquidStack.with(GalacLiquids.kerosene, 4f / 60f, Liquids.cryofluid, 2f / 60f));
-			powerProduction = 30f;
+			powerProduction = 20f;
 		}};
 
 		fusionReactor = new ImpactReactor("fusion-reactor"){{
