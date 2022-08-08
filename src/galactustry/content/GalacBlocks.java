@@ -25,7 +25,7 @@ public class GalacBlocks{
 	// power
 	keroseneGenerator, fusionReactor,
 	// liquid
-	insulatedConduit;
+	insulatedConduit, magneticIsolationConduit;
 
     public static void load() {
 		graphenePeeler = new GenericCrafter("graphene-peeler"){{
@@ -88,7 +88,7 @@ public class GalacBlocks{
 			
 			ambientSound = Sounds.pulse;
 			ambientSoundVolume = 0.1f;
-			drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(Liquids.cryofluid), new DrawRegion("-mid"), new DrawDefault());
+			drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(Liquids.cryofluid), new DrawRegion("-mid"), new DrawPlasma(), new DrawDefault());
 
 			consumePower(3500f);
 			consumeLiquids(LiquidStack.with(Liquids.hydrogen, 12f / 60f, Liquids.cryofluid, 1f / 60f));
@@ -96,8 +96,15 @@ public class GalacBlocks{
 
 		insulatedConduit = new Conduit("insulated-conduit"){{
 			requirements(Category.liquid, with(Items.oxide, 2, Items.metaglass, 1, Items.graphite, 1));
-			liquidCapacity = 16f;
+			liquidCapacity = 12f;
 			liquidPressure = 1.025f;
+			health = 90;
+		}};
+
+		magneticIsolationConduit = new Conduit("magnetic-isolation-conduit"){{
+			requirements(Category.liquid, with(GalacItems.electroid, 2, Items.metaglass, 1, Items.silicon, 1, Items.titanium, 1));
+			liquidCapacity = 12f;
+			liquidPressure = 1.25f;
 			health = 90;
 		}};
 
